@@ -36,12 +36,13 @@ public class DsDesafio01Application implements CommandLineRunner {
 		System.out.print("Porcentagem de desconto: ");
 		Double discount = sc.nextDouble();
 		
-		OrderService orderService = new OrderService(new ShippingService());
-		
-		Order order = new Order(code, basic, discount, orderService);
+		Order order = new Order(code, basic, discount);
 
+		ShippingService shippingService = new ShippingService();
+		OrderService orderService = new OrderService(shippingService);
+		
 		System.out.println("Pedido código: "+order.getCode());
-		System.out.println("Valor total: "+String.format("%.2f", order.total()));
+		System.out.println("Valor total: "+String.format("%.2f", orderService.total(order)));
 		
 		sc.close();
 	}

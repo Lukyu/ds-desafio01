@@ -2,26 +2,17 @@ package com.lucastamb.dsdesafio01.entity;
 
 import java.util.Objects;
 
-import com.lucastamb.dsdesafio01.service.interfaces.OrderServiceInterface;
-
 public class Order {
 
 	private Integer code;
 	private Double basic;
 	private Double discount;
 	
-	private OrderServiceInterface orderService;
-	
-	public Order(Integer code, Double basic, Double discount, OrderServiceInterface orderService) {
+	public Order(Integer code, Double basic, Double discount) {
 		super();
 		this.code = code;
 		this.basic = basic;
 		this.discount = discount;
-		this.orderService = orderService;
-	}
-
-	public Double total() {
-		return this.orderService.total(this);
 	}
 	
 	public Integer getCode() {
